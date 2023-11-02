@@ -33,7 +33,7 @@ write_warn() {
   echo "[$_YELLOW WARN $_RESET] $1"
 }
 
-trap 'echo "An error occurred. Exiting..."; exit 1;' ERR
+trap 'echo "Error on line $LINENO: Exit status of $?: $BASH_COMMAND";' ERR
 
 printf "${_BOLD}${_MAGENTA}"
 echo "+-------------------------------------+"
