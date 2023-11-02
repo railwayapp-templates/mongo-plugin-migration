@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sleep 2
+sleep 5
 
 set -o pipefail
 
@@ -79,7 +79,7 @@ write_ok "NEW_URL correctly set"
 section "Checking if NEW_URL is empty"
 
 # Using mongo shell to check if any collection has documents
-result=$(mongo "$NEW_URL" --quiet --eval "db.getCollectionNames().length")
+result=$(mongo "$NEW_URL" --eval "db.getCollectionNames().length")
 
 if [[ "$result" -gt 0 ]]; then
   if [ -z "$OVERWRITE_DATABASE" ]; then
